@@ -1,0 +1,26 @@
+* 객체(Objects) *
+  - 이름-값 쌍(name-vlue pairs)의 모임
+  - 객체는 일반적으로 리터럴 구문을 사용하여 생성된다
+    const obj = {
+      name: "Carrot",
+      for: "Max",
+      details: {
+        color: "orange",
+        size: 12,
+      },
+    };
+    속성 접근은 함께 연결 가능
+    obj.details.color; // orange
+    obj["details"]["size"]; // 12
+
+    -객체의 속성은 . 또는 []를 이용하여 접근할 수 있다.
+      . 표기법
+      obj.name = "Simon";
+      const name = obj.name;
+
+      []표기법obj["name"] = "Simon";
+      const name = obj["name"];
+
+      변수를 사용하여 키를 정의할 수 있다.
+      const userName = prompt("what is you key?");
+      obj[userName] = prompt("what is its value?");

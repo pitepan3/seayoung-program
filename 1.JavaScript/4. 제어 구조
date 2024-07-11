@@ -1,0 +1,27 @@
+* 제어 구조 *
+  - if 및 else
+  let name = "kittens";
+  if (name === "puppies") {
+    name += " woof";
+  } else if (name === "kittens") {
+    name += " meow";
+  } else {
+    name += "!";
+  }
+  name === "kittens meow";
+  에서 name === "puppies"가 거짓이고, else if(name === "kittens")가 true이므로
+  name += " meow"; 가 되기 때문에 name === "kittens meow"; 는 true이다
+
+  - while 반복문과 do...while 반복문
+  - while(true){} 
+  false값이 들어갈때까지 반복하기 때문에 무한루프!!
+
+  - do {
+    // 반복 실행할 코드
+  } while (조건);
+  do while 반복문은 조건을 먼저 검사하지 않고 최소 한번은 실행하는 반복문이다(이후에 조건이 참이면 반복)
+
+  - for 반복문
+  for(let i = 0; i < 5; i++){} // 0~4까지 5번 반복
+
+  - for...in반복문, for...of반복문, switch문, try catch 도 있다
