@@ -1,0 +1,29 @@
+* 클래스 *
+  - java와 javascript는 매우 유사한 class문법을 제공한다.
+  class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  sayHello() {
+    return `Hello, I'm ${this.name}!`;
+  }
+  }
+
+  // new 연산자를 통해 name=Maria인 객체를 반환한다
+  const p = new Person("Maria"); // new연산자로 인스턴스화를 해야한다.
+  console.log(p.sayHello()); // Hello, I'm Maria!
+  
+
+  ------------------------------------------------------------------------------------
+  const withAuthentication = (cls) => //withAuthentication는 클레스에 인증 기능을 추가하는 역할
+  class extends cls {
+    authenticate() { // 인증 과정을 구현하는 메서드
+      // …
+    }
+  };
+
+  class Admin extends withAuthentication(Person) {
+    // …
+  }
+  Admin 클레스는 withAuthentication함수를 사용하여 Person클레스를 상속받는다
+  결과적으로 Admin클레스는 Person클레스에 정의된 모든 기능과 속성을 상속받고, authenticate메서드를 포함

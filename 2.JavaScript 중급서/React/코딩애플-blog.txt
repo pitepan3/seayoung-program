@@ -1,0 +1,53 @@
+src/App.js파일이 메인 파일이고, App.js파일 내용을 public/index.html파일로 보내주기 때문에
+페이지에 출력이 되는 것이다
+
+JSX문법 3가지
+1. class를 부여할 때는 className으로 써야한다 // <div className="black-nav">
+2. 변수를 넣을때에는 중괄호{}안에 넣어야한다 // let post = '강남 우동 맛집';   <h4>{ post }</h4>
+3. style넣을 땐 style={{스타일명: '값}} // <h4 style={ {color: 'red', fontSize: '16px'} }>블로그임</h4>
+
+useState
+변동시 자동으로 html에 반영되게 만들고 싶을 때 사용
+자주 변경될거같은 html부분은 state로 만든다
+사용 방법
+1. import { useState } from 'react';
+2. useState(보관할 자료) // useState('남자 코트 추천');
+3. let[작명, 작명] // let[a, b] = useState('남자 코트 추천');
+  - a는 보관한 자료
+  - b는 state변경 도와주는 함수
+
+useState 변경하는법
+1. 등호로 변경금지
+2. let[a, b] = useState(0)에서 b(변경용 함수)를 이용한다
+  - ex: <span onClick={() => { b(a + 1) }}>👍</span>
+  - 따봉을ㄹ 클릭할때마다 1씩 증가
+3. 기존state == 신규state일 경유 변경해주지 않는다
+4. array/object일 경우
+  - let a = useState([1, 2, 3]); => let copy = [...a]로 독립적인 신규state로 만들어야 한다
+
+onClick 이벤트
+onClick={} 안에는 함수이름을 넣어야한다
+  - <span onClick={ () => { console.log(1) } }>👍</span>
+
+Component 만드는 법(컴포넌트 작명시 첫글자는 대문자로 작성)
+1. function만들기
+2. return()안에 html담기
+3. <함수명></함수명> 쓰기
+  function Modal() {
+  return(
+    <div className='modal'>
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  )
+}
+메인함수 밖에 함수를 만들고, 메인함수 안에 <Modal/>써서 이용
+
+Component용이하게 이용하는법
+1. 반복적인 html축약할 때
+2. 큰 페이지들
+3. 자주 변경되는 것들
+
+Component사용할때 주의할점
+1. state 가져다 쓸 때 문제가 생긴다(변수 스코프 관련 문제발생)

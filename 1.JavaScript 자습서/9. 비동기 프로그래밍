@@ -1,0 +1,37 @@
+* 비동기 프로그래밍 *
+  - 비동기 프로그래밍은 사용자의 권한 요청, 데이터 가져오기, 파일 읽기까지 외부 환경과 상호작용을 할 때 중요하다
+  비동기 코드를 작성하는 세 가지 관용적인 방법
+  1. 콜백 기반 방법 ex) setTimeout();
+
+  2. Promise 기반 방법
+
+  3. Promise의 문법적인 설탕(syntactic sugar)인 async/await 방법
+
+  // 콜백 기반(Callback-based)
+  fs.readFile(filename, (err, content) => { //fs.readFile은 파일을 읽기 위한 비동기 함수
+    // 파일을 읽는 작업이 완료되면 이 콜백 함수가 호출된다
+    if (err) {
+      // 파일을 읽는 도중 에러가 발생하면 에러를 던진다
+      throw err;
+    }
+    // 파일을 성공적으로 읽으면 파일의 내용 출력
+    console.log(content);
+  });
+  // 파일 읽기를 기다리는 동안 여기의 코드가 실행됩니다.
+
+  // 프로미스 기반(Promise-based)
+  fs.readFile(filename) // 파일 읽기 시작
+    .then((content) => { // 파일 읽기 성공하면 이 함수 호출
+      // 파일을 읽을 때 수행할 작업
+      console.log(content);
+    })
+    .catch((err) => { // 파일 읽기 실패시 이 함수 호출
+      throw err;
+    });
+  // 파일 읽기를 기다리는 동안 여기의 코드가 실행됩니다.
+
+  // Async/await 기반(await은 async함수 내에서만 사용 가능하다)
+  async function readFile(filename) { // async키워드는 함수 앞에 붙여서 해당 함수가 비동기임을 나타냄
+    const content = await fs.readFile(filename); // await은 파일 읽기가 끝날때까지 기다려주는 역할
+    console.log(content);
+  }
