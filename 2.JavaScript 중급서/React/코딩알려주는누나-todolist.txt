@@ -1,0 +1,8 @@
+onChange 사용방법
+1. onChange는 input테그에서 사용할 수 있다
+<input type="text" onChange=
+{(event) => console.log(event.target.value)} />
+에서 text값이 event.target.value에 저장된다
+
+props
+
