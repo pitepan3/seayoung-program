@@ -12,7 +12,6 @@ function App() {
   const [inputValue, setInputValue] = useState('');
   const [todoList, setTodoList] = useState([]);
   const addItem = () => {
-    console.log("im dh", inputValue)
     setTodoList([...todoList, inputValue])
   }
 
