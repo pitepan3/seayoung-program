@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-function TodoWightForm({newTodoTitle, setNewTodoTitle, addTodo}) {
+function TodoWriteForm({newTodoTitle, setNewTodoTitle, addTodo}) {
   return(
     <div>
       <input type="text" placeholder="새 할일을 입력해주세요"
@@ -9,6 +9,37 @@ function TodoWightForm({newTodoTitle, setNewTodoTitle, addTodo}) {
       onChange={(e) => setNewTodoTitle(e.target.value)} />
       &nbsp;
       <button onClick={addTodo}>할 일 추가</button>
+    </div>
+  )
+}
+
+function TodoListItem({todo, todos, index, setTodos}) {
+  
+  const removeTodo = () => {
+    const newTodos = todos.filter((_, _index) => index != _index);
+    setTodos(newTodos);
+  }
+
+  return(
+    <li>
+      {index + 1}.
+      &nbsp;
+      {todo}
+      &nbsp;
+      <button onClick={removeTodo}>삭제</button>
+    </li>
+  )
+}
+
+function TodoList({todos, setTodos}) {
+  return(
+    <div>
+      <ul>
+        {todos.map((todo, index) => (
+          <TodoListItem key={index} index={index} 
+          todo={todo} setTodos={setTodos} todos={todos} />
+        ))}
+      </ul>
     </div>
   )
 }
@@ -27,14 +58,12 @@ function App() {
 
   return(
     <div>
-      <TodoWightForm newTodoTitle={newTodoTitle} 
+      <TodoWriteForm newTodoTitle={newTodoTitle} 
       setNewTodoTitle={setNewTodoTitle} addTodo={addTodo}/>
       
       <hr />
 
-      <div>
-        {JSON.stringify(todos)}
-      </div>
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   )
 }
