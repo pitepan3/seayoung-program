@@ -82,4 +82,54 @@ console.log(0 !== ""); // true
 console.log(true !== 1); // true
 console.log(false !== 0); // true
 console.log(true !== "1"); // true
+console.log('------------------------')
+
+// 대소 관계 비교 연산자
+console.log(100 > 1);
+console.log(100 < 1);
+console.log(100 <= 1);
+console.log(100 >= 1);
+console.log('------------------------')
+
+// 삼항 조건 연산자(ternary operator)
+console.log(10 > 0 ? 'true이다' : 'false이다'); // true일 때 앞쪽 출력
+console.log('------------------------')
+
+// 논리 연산자
+// 1. &&(and)조건은 모두 true여야 true를 반환한다
+console.log(true && true); // 외에 모두 false
+// 2. ||(or)조건은 하나만 true여도 true를 반환한다
+console.log(false || false); // 외에 모두 true
+console.log('------------------------')
+
+// 단축평가(short circuit evaluation)
+// &&를 사용했을때 좌측이 true면 우측 값 반환
+// &&를 사용했을때 좌측이 false면 좌측 값 반환
+// ||를 사용했을때 좌측이 true면 좌측 값 반환
+// ||를 사용했을때 좌측이 false면 우측 값 반환
+console.log(true || "아이브"); // true
+console.log(false || "아이브"); // 아이브
+console.log(false && "아이브"); // false
+console.log(true && "아이브"); // 아이브
+
+console.log(true && true && "아이브"); // 아이브
+console.log(true && false && "아이브"); // false
+console.log('------------------------')
+
+// 지수 연산자
+console.log(2 ** 2); // 2의2승 = 4
+console.log(10 ** 3); // 10의 3승 = 1000
+console.log('------------------------')
+
+// null 연산자
+let name;
+console.log(name); // undefined
+
+name = name ?? '코드팩토리'; //??는 좌측값이 null이거나 undefined면 우측 값을 반환해라
+console.log(name); // 코드팩토리
+
+let name2;
+name2 ??= "코드팩토리";
+console.log(name2); // 위의 코드의 줄임버전
+
 
