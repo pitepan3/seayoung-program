@@ -1,1 +1,1 @@
-hello
+git pull origin master로 최신화 하고나서 진행하기
