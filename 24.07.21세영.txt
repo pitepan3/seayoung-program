@@ -1,0 +1,74 @@
+Network <- 자세하게 안하고, 반드시 해야 하는거 위주(면접때 반드시 물어보는거)
+1. TCP/IP개괄
+2. OSI 7Layer
+3. HTTP에 대한 이해
+4. 포트포워딩, 라우팅, 도메인(DNS)
+5. IP.Port를 왜 사용하는가?
+
+5. IP.Port =>
+    ip는(아파트 동 수)
+    411동 1103호 => 411 = IP, 1103 = Port, 1103호 ip.port를 열었다 라고 표현한다
+    ex) 127.0.0.1 = localhost 나 자신의 고정 번호
+    ip를 할당해주는 단체가 전세계에 1개가 있다
+    우리나라는 kt, skt, lg등 인터넷 통신사별 개인 ip가 주어진다
+    but, 단체에서 나의 ip를 볼때는 통신사별 주어지는 ip 외의 global ip를 보게된다
+
+    port(집 호 수)는 내 방문(열어주지않으면 들어올 수 없다.)
+    (inbound = 외부에서 들어오는 포트, outbound = 내부에서 나가는 포트)
+    => 방화벽(Firewall)이 하는일이 port의 inbound, outbound 정책을 관리한다
+    => 방문을 닫을거냐, 열을거냐 관리하는 것
+
+4. Port Forwarding
+    = 유배보내는것(의지와 상관없이 다른곳으로 보내버리는거)
+    내집과 세영집이 연결되었을때 우리집을 방문하면 의지와 상관없이 세영집으로 방문하게 되는것
+    = 하나의 아파트 내에서
+
+    Routing
+    = 위와 같이 유배보내는것
+    = 아파트 단지 내에서
+
+    DNS(Domain-Name-Service)
+    ex)네이버 = www.naver.com
+    = IP에 이름을 부여하는 것
+    => KT, SKT, LG U+가 Global IP => 자신들의 Subnet IP로 바꾸거나, 이름을 부여한다
+
+3. HTTP(Hyper-Text-Transfer-Protocol)
+    Hyper Text란 = HTML(Hyper-Text-Markyp-Language)
+
+    = HTML을 주고받는 프로토콜이다.
+    = 프로토콜이란 = 규약!
+        ex)세영 동훈이 약속을 했다. 앞으로 수업 전에는 반드시 밥을 먹고 하기로(이것도 Protocol이다)
+    
+    HTTP는 약속 중에 하나다!!
+    ex) <div>테스트</div>를 서버로 보냈다 => WebBrowser에 띄워줘야한다 div를열고 div가 끝나는것 = 규약
+    
+    HTTPS(Hyper-Text-Transfer-Protocol-Secure) = HTTP + TLS
+    HTTP와 비슷한 프로토콜 SSH(보안접속할때 씀), FTP(파일 전송할때 사용), WebSocket(WS) 브라우저끼리 직접 통신
+
+    https://www.naver.com = 네이버랑 HTTP 통신을 하겠다.(HTML로 얘기하겠다)
+    ftp://www.naver.com = 네이버랑 파일 전송을 하겠다(파일로 얘기하겠다)
+    Ssh://www.naver.com = 네이버랑 서버에 보안 접속을 하겠다.(서버 컴퓨터에)
+    ws://www.naver.com = 네이버랑 웹소켓 통신을 하겠다.
+
+    <프로토콜>://<IP>:<Port> => 특정 프로토콜로 해당 IP의 해당 포트로 접근한다
+
+2. OSI 7Layer
+    7단계
+    Lv.1 = 랜선(이더넷) 물리적으로 패킷을 전송할 수 있는 장치 단을 말한다
+        패킷(Packet): 한번 전솔할 때 보낼 수 있는 최대 단위
+    Lv.2 = 스위치, 공유기(하나의 네트워크를 여러개 나루 수 있다, Subnet을 만들 수 있다)
+        공유기들을 보통 L2 Switch라고 부른다
+    Lv.3 = IP(특정 할 수 있는 이름을 정하는 Layer)
+    Lv.4 = TCP/UDP (패킷을 주고받는 방법을 정의하는 Layer)
+        = TCP는 안전성 높음, 속도는 떨어져.
+        = UDP는 안전성 낮아, 속도는 빨라
+    Lv.5 = HTTP, FTP, 등등 = 어플리케이션 레이어라고 한다
+        패킷을 어떻게 모아서 해석할 건데?
+    Lv.6 = 브라우저(크롬, 엣지 등)
+        lv5에서 정한 방법으로 해석을 했어, 이걸로 뭐할건데? >> 크롬으로 정함
+    Lv.7 = 웹사이트 PDF 등등
+        크롬 등이 뭘 보여주나?? >> 웹사이트나 PDF파일, 동영상, 음악 파일 등을 보여줄거야
+    >> 이걸 다 통과해서 우리가 쓰는거다.
+    >> 프론트 엔지니어는 lv4~lv6에 특화
+
+    다음주 TCP/IP수업 할거임. 여유있으면 찾아보기
