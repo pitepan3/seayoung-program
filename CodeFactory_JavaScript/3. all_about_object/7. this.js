@@ -91,4 +91,3 @@ const laterFunc = multiply.bind(yuJin3, 3, 4, 5);
 console.log(laterFunc); // [Function: bound multiply];
                         // laterFunc는 multiply라는 함수이고, bound(bind되었다라는 과거형)
 console.log(laterFunc()); // 안유진 / 결과값 : 60
-
