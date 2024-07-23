@@ -1,0 +1,15 @@
+<script>
+  function getNumber() {
+    var number = 5;
+
+    function innerGetNumber() {
+      return number;
+    }
+
+    return innerGetNumber;
+  }
+
+  var runner = getNumber();
+  console.log(runner());
+  // 실제 웹브라우저 검사화면에서 source를 살펴보면 closure: 5라는 값이 있음을 알 수 있다
+</script>
