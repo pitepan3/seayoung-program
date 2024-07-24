@@ -1,4 +1,4 @@
 rafce + 텝 => html:5같이 기본 틀 만드는 단축키 (ES7 + React/Redux/React-Native Snippets가 깔려있어야함)
 <> 태그 안에 role='' = 웹표준을 지켜주기 위함. 역할 표시
 
-8. 헤더영역 데이터 작업 부터 시작
+9. 부터 시작
