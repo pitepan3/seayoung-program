@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import { Link } from 'react-router-dom'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-
-import { Navigation } from 'swiper/modules';
+import { Navigation } from "swiper/modules";
 
 const VideoSlider = ({ id, title, videos }) => {
   const [loading, setLoading] = useState(true);
@@ -14,47 +13,47 @@ const VideoSlider = ({ id, title, videos }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 500)
+    }, 500);
   }, []);
 
-  const videoClass = loading ? 'isLoading' : 'isLoaded';
+  const videoClass = loading ? "isLoading" : "isLoaded";
 
   return (
     <section id={id} className={videoClass}>
       <h2>{title}</h2>
       <div className="video__slider">
-        <Swiper 
+        <Swiper
           slidesPerView={1}
           spaceBetween={20}
-          navigation={true} 
-          modules={[Navigation]} 
+          navigation={true}
+          modules={[Navigation]}
           className={`mySwiper-${id}`}
           breakpoints={{
             640: {
               slidesPerView: 2,
-              spaceBetween: 20
+              spaceBetween: 20,
             },
             768: {
               slidesPerView: 3,
-              spaceBetween: 20
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween: 20
+              spaceBetween: 20,
             },
             1600: {
               slidesPerView: 5,
-              spaceBetween: 20
-            }
+              spaceBetween: 20,
+            },
           }}
-          >
+        >
           {videos.map((video, key) => (
             <SwiperSlide key={key}>
               <div className="video">
                 <div className="video__thumb play__icon">
-                <Link to={`/video/${video.videoId}`}>
+                  <Link to={`/video/${video.videoId}`}>
                     <img src={video.img} alt={video.title} />
-                </Link>
+                  </Link>
                 </div>
               </div>
             </SwiperSlide>

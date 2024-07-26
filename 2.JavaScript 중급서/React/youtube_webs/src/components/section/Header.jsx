@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import Logo from '../header/Logo';
-import Menu from '../header/Menu';
-import Sns from '../header/Sns';
+import Logo from "../header/Logo";
+import Menu from "../header/Menu";
+import Sns from "../header/Sns";
 
 const Header = () => {
   return (
-    <header id='header' role='banner'>
+    <header id="header" role="banner">
       <Logo />
       <Menu />
       <Sns />

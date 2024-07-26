@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
   return (
-    <footer id='footer' role='contentinfo'>
-        <a href='mailto:pitepan3@naver.com' rel='noopenner noreferrer'>
-          pitepan3@naver.com
-        </a>
+    <footer id="footer" role="contentinfo">
+      <a href="mailto:webstoryboy@naver.com" rel="noopenner noreferrer">
+        webstoryboy@naver.com
+      </a>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
