@@ -1,5 +1,4 @@
-import React from "react";
-import { developerText } from "../../data/developer";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "swiper/css";
@@ -9,10 +8,20 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 
-const Developer = () => {
+const Developer = ({ videos, title, id }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 400)
+  }, []);
+
+  const developerClass = loading ? 'isLoading' : 'isLoaded';
+
   return (
-    <section id="developer">
-      <h2>😪 추천 개발자를 소개합니다.</h2>
+    <section id={id} className={developerClass}>
+      <h2>{title}</h2>
       <div className="developer__inner">
         <Swiper
           slidesPerView={4}
@@ -51,9 +60,9 @@ const Developer = () => {
           modules={[Autoplay, Navigation]}
           className="mySwiper"
         >
-          {developerText.map((developer, key) => (
+          {videos.map((developer, key) => (
             <SwiperSlide key={key}>
-              <div className="developer">
+              <div className="developer" key={key}>
                 <div className="developer__img play__icon">
                   <Link to={`/channel/${developer.channelId}`}>
                     <img src={developer.img} alt={developer.name} />
@@ -70,7 +79,7 @@ const Developer = () => {
         </Swiper>
       </div>
     </section>
-  );
-};
+  )
+}
 
 export default Developer;
