@@ -9,7 +9,8 @@ const VideoSearch = ({ videos }) => {
           <div className="video__thumb play__icon">
             <Link 
               to={`/video/${video.id.videoId}`} 
-              style={{ backgroundImage: `url(${video.snippet.thumbnails.high.url})` }}>
+              style={{ backgroundImage: `url(${video.snippet.thumbnails.high.url})` }}
+              >
             </Link>
           </div>
           <div className="video__info">

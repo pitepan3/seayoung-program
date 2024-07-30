@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import Main from '../components/section/Main'
-import VideoSearch from '../components/video/VideoSearch'
 import { useParams } from 'react-router-dom'
+import Main from '../components/section/Main'
+
+import VideoSearch from '../components/video/VideoSearch'
+import { fetchFromAPI } from '../utils/api'
 
 const Search = () => {
   const { searchId } = useParams();
   const [ videos, setVideos ] = useState([]);
+
   useEffect(() => {
-    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${searchId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`)
-      .then(response => response.json())
-      .then(result => {
-        console.log(result);
-        setVideos(result.items);
+    fetchFromAPI(`search?part=snippet&q=${searchId}`)
+      .then((data) => {
+        console.log(data)
+        setVideos(data.items)
       })
-      
-      .catch(error => console.log(error));
   }, [searchId]);
 
   return (
