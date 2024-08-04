@@ -27,3 +27,5 @@ JavaScript는 플렛폼 독립적이지 않지만, Node.Js가 있기에 독립�
 NodeJs의 구조 꼭 알아야한다
 blocking sync, async
 non-blocking sync, async 차이점 알자!
+
+동기, 비동기 확실하게 알아야함
